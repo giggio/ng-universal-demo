@@ -6,6 +6,7 @@ import { TransferState } from '../modules/transfer-state/transfer-state';
   template: `
     <h1>Universal Demo</h1>
     <a routerLink="/">Home</a>
+    <a routerLink="/customers">Customers</a>
     <a routerLink="/lazy">Lazy</a>
     <router-outlet></router-outlet>
   `,

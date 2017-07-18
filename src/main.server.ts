@@ -5,7 +5,6 @@ import * as express from 'express';
 import { platformServer, renderModuleFactory } from '@angular/platform-server';
 import { ServerAppModule } from './app/server-app.module';
 import { ngExpressEngine } from '@nguniversal/express-engine';
-import { ROUTES } from './routes';
 import { Greeting } from './api/greeting';
 import { Customers } from './api/customers';
 import { enableProdMode } from '@angular/core';
@@ -22,18 +21,7 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', 'src');
 
-app.use('/', express.static('dist', {index: false}));
-
-ROUTES.forEach(route => {
-  app.get(route, (req, res) => {
-    console.time(`GET: ${req.originalUrl}`);
-    res.render('../dist/index', {
-      req: req,
-      res: res
-    });
-    console.timeEnd(`GET: ${req.originalUrl}`);
-  });
-});
+app.use('/', express.static('dist', { index: false }));
 
 app.get('/api/greeting', (req, res) => {
   console.time(`GET: ${req.originalUrl}`);
@@ -49,6 +37,12 @@ app.get('/api/customers', async (req, res) => {
   console.timeEnd(`GET: ${req.originalUrl}`);
 });
 
-app.listen(8000,() => {
-	console.log(`Listening at ${baseUrl}`);
+app.get('*', (req, res) => {
+  console.time(`GET: ${req.originalUrl}`);
+  res.render('../dist/index', { req, res });
+  console.timeEnd(`GET: ${req.originalUrl}`);
+});
+
+app.listen(8000, () => {
+  console.log(`Listening at ${baseUrl}`);
 });
