@@ -12,7 +12,7 @@ export class HomeView implements OnInit {
   constructor(private http: TransferHttp) {}
 
   ngOnInit() {
-    this.subs = this.http.get('http://localhost:8000/data').map(data => {
+    this.subs = this.http.get('http://localhost:8000/api/data').map(data => {
       return `${data.greeting} ${data.name}`;
     });
   }

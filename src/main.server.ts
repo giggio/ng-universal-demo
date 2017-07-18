@@ -34,7 +34,7 @@ ROUTES.forEach(route => {
   });
 });
 
-app.get('/data', (req, res) => {
+app.get('/api/data', (req, res) => {
   console.time(`GET: ${req.originalUrl}`);
   res.json(api.getData());
   console.timeEnd(`GET: ${req.originalUrl}`);
