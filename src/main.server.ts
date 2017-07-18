@@ -9,6 +9,7 @@ import { Greeting } from './api/greeting';
 import { Customers } from './api/customers';
 import { enableProdMode } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/toArray';
 enableProdMode();
 const app = express();
 const port = 8000;
@@ -32,7 +33,7 @@ app.get('/api/greeting', (req, res) => {
 
 app.get('/api/customers', async (req, res) => {
   console.time(`GET: ${req.originalUrl}`);
-  const customers = await new Customers().getAll().toPromise();
+  const customers = await new Customers().getAll().toArray().toPromise();
   res.json(customers);
   console.timeEnd(`GET: ${req.originalUrl}`);
 });

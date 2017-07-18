@@ -1,10 +1,11 @@
 import { Headers } from '@angular/http';
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { TransferHttp } from "../modules/transfer-http/transfer-http";
-import { Customer } from "../models/customer";
+import { TransferHttp } from "../../modules/transfer-http/transfer-http";
+import { TransferState } from "../../modules/transfer-state/transfer-state";
+import { Customer } from "../../models/customer";
 import 'rxjs/add/operator/toPromise';
-import { TransferState } from "../modules/transfer-state/transfer-state";
+import 'rxjs/add/operator/toArray';
 
 @Injectable()
 export class CustomerService {
@@ -19,8 +20,8 @@ export class CustomerService {
         .map((data: Array<Customer>) => data.map(c => new Customer(c)))
         .toPromise();
     } else if (isPlatformServer(this.platformId)) {
-      const { Customers } = await import("../api/customers");
-      const customers = await new Customers().getAll().toPromise();
+      const { Customers } = await import("../../api/customers");
+      const customers = await new Customers().getAll().toArray().toPromise();
       this.transferState.set('customers', customers);
       return customers;
     }

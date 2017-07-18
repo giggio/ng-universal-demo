@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransferHttp } from '../../modules/transfer-http/transfer-http';
 import { Observable } from 'rxjs/Observable';
-import { CustomerService } from "../../services/customer.service";
+import { CustomerService } from "./customer.service";
 import { Customer } from "../../models/customer";
 
 @Component({

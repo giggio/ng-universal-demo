@@ -6,9 +6,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeView } from './home/home-view.component';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
-import { CustomerService } from "../services/customer.service";
+import { CustomerService } from "./+customers/customer.service";
 import { CustomersView } from "./+customers/customer-view.component";
-
 
 @NgModule({
   imports: [

@@ -1,9 +1,9 @@
 import { Customer } from "../models/customer";
-import { of } from 'rxjs/observable/of';
+import { from } from 'rxjs/observable/from';
 
 export class Customers {
   getAll() {
-    return of([
+    return from([
       new Customer({ id: 1, name: "Giovanni" }),
       new Customer({ id: 2, name: "Victor" })
     ]);
