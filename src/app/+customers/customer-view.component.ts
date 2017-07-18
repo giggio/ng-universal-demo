@@ -6,7 +6,7 @@ import { Customer } from "../../models/customer";
 
 @Component({
   selector: 'customers-view',
-  template: `<div>Customers: {{customers | async}}</div>`
+  template: `<h3>Customers: {{customers | async}}</h3>`
 })
 export class CustomersView implements OnInit {
   public customers: Promise<Customer[]>;
