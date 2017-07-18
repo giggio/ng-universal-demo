@@ -12,7 +12,7 @@
     "prebuild:aot": "npm run clean",
     "prebuild:prod": "npm run clean",
     "clean": "rimraf dist",
-    "server": "nodemon dist/server.js",
+    "server": "nodemon",
     "watch": "webpack --watch"
   },
   "engines": {
