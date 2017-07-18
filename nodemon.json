@@ -4,5 +4,6 @@
     "dist/index.html"
   ],
   "ext": "js html",
-  "exec": "node dist/server.js"
+  "exec": "node dist/server.js",
+  "delay": 1000
 }

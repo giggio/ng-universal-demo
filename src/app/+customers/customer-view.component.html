@@ -1,0 +1,6 @@
+<h3>Customers:</h3>
+<ul>
+  <li *ngFor="let customer of customers | async">
+    {{customer.id}} - {{customer.name}} (valid: {{customer.isValid()}})
+  </li>
+</ul>
