@@ -1,7 +1,7 @@
 import { data } from './data';
 
-export class App {
-  getData() {
+export class Greeting {
+  get() {
     return data;
   }
 }
