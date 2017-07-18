@@ -33,7 +33,7 @@ app.get('/api/greeting', (req, res) => {
 
 app.get('/api/customers', async (req, res) => {
   console.time(`GET: ${req.originalUrl}`);
-  const customers = await new Customers().getAll().toArray().toPromise();
+  const customers = await new Customers().getAll();
   res.json(customers);
   console.timeEnd(`GET: ${req.originalUrl}`);
 });
